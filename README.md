@@ -24,3 +24,11 @@
 ## Misc:
 
 - multiplayer functionality
+
+## Contributions:
+- content creator
+  - content manager
+  - music/audio track developer
+  - game AI developer
+- game developer
+
