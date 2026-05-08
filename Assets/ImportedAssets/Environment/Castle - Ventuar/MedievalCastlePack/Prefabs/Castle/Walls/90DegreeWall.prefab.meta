@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ef0326676ab22c443a20bb2f5f4ad8d8
+timeCreated: 1521343099
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116660
+  packageName: Low Poly Medieval Castle Pack
+  packageVersion: 1.1.2
+  assetPath: Assets/Ventuar/MedievalCastlePack/Prefabs/Castle/Walls/90DegreeWall.prefab
+  uploadId: 427010

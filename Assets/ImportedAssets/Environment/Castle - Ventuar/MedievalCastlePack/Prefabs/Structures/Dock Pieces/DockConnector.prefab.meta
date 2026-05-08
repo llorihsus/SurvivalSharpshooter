@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c0efb3db744ca844794af9da2bb1ec6b
+timeCreated: 1521343533
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116660
+  packageName: Low Poly Medieval Castle Pack
+  packageVersion: 1.1.2
+  assetPath: Assets/Ventuar/MedievalCastlePack/Prefabs/Structures/Dock Pieces/DockConnector.prefab
+  uploadId: 427010

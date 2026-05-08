@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 9d676205f61d6c44fb239b7cb342bf09
+timeCreated: 1521337372
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116660
+  packageName: Low Poly Medieval Castle Pack
+  packageVersion: 1.1.2
+  assetPath: Assets/Ventuar/MedievalCastlePack/FileAssets/Materials/Backdrop.mat
+  uploadId: 427010
