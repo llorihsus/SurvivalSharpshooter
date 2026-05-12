@@ -1,13 +1,9 @@
 using UnityEngine;
 using StarterAssets;
-using static Unity.Collections.AllocatorManager;
-using UnityEngine.UI;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] float damage = 25f;
     StarterAssetsInputs starterAssetsInputs;
 
     private void Awake()
@@ -32,11 +28,17 @@ public class Weapon : MonoBehaviour
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
             {
                 Debug.Log(hit.collider.name);
+                Health health = hit.collider.GetComponent<Health>();
+
+                if (health != null)
+                {
+                    health.TakeDamage(damage);
+                }
             }
 
             // Reset shoot to false OUTSIDE the raycast if-block
             starterAssetsInputs.ShootInput(false);
-            // ShootInput(false) must be OUTSIDE the inner raycast if-block but INSIDE the outer shoot check. If you put it inside the raycast block, aiming at empty sky will leave shoot stuck as true forever — the gun fires every frame until it hits something.
+            // ShootInput(false) must be OUTSIDE the inner raycast if-block but INSIDE the outer shoot check. If you put it inside the raycast block, aiming at empty sky will leave shoot stuck as true forever ï¿½ the gun fires every frame until it hits something.
         }
         
     }
