@@ -13177,6 +13177,11 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!95 &451513684 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: 8c53cffd52097cf4582f0a090c9a833e, type: 3}
+  m_PrefabInstance: {fileID: 451513680}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &453305491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22365,6 +22370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf9e7bfe1a71234996b02acda41e73f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
+  damage: 25
 --- !u!4 &797971227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4105677843267954, guid: 64ae000e843ec51469ca6539b68ac713, type: 3}
@@ -43872,6 +43878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7912dc4ef8b45704fb34a087184027d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Robot
+  zombieAnimator: {fileID: 451513684}
 --- !u!136 &1576159365
 CapsuleCollider:
   m_ObjectHideFlags: 0
