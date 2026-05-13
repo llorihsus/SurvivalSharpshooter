@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 70c438dbf4adb014f98e821458246194
+timeCreated: 1521343597
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116660
+  packageName: Low Poly Medieval Castle Pack
+  packageVersion: 1.1.2
+  assetPath: Assets/Ventuar/MedievalCastlePack/Prefabs/Structures/Houses/LargeHouseBase.prefab
+  uploadId: 427010

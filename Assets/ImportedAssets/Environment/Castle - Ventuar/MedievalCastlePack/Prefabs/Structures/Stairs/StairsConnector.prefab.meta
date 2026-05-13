@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3515d4e3f4c6386488a4c81186b498a9
+timeCreated: 1521343634
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116660
+  packageName: Low Poly Medieval Castle Pack
+  packageVersion: 1.1.2
+  assetPath: Assets/Ventuar/MedievalCastlePack/Prefabs/Structures/Stairs/StairsConnector.prefab
+  uploadId: 427010

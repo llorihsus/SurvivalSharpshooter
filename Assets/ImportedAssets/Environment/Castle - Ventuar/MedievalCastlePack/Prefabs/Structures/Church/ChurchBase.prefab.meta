@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: acc2e2c75278bcd43b3d7d98118b1cac
+timeCreated: 1521343502
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116660
+  packageName: Low Poly Medieval Castle Pack
+  packageVersion: 1.1.2
+  assetPath: Assets/Ventuar/MedievalCastlePack/Prefabs/Structures/Church/ChurchBase.prefab
+  uploadId: 427010

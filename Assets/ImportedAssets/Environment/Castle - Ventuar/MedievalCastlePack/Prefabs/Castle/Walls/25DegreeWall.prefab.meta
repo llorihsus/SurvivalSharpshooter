@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5a80ba7cda2c9a647b8024c64e6d6a6d
+timeCreated: 1521343095
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116660
+  packageName: Low Poly Medieval Castle Pack
+  packageVersion: 1.1.2
+  assetPath: Assets/Ventuar/MedievalCastlePack/Prefabs/Castle/Walls/25DegreeWall.prefab
+  uploadId: 427010

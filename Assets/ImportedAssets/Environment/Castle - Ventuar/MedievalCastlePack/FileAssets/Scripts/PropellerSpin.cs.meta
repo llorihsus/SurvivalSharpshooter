@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 2476b8f898c89aa48b9d4125fc4f8e09
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116660
+  packageName: Low Poly Medieval Castle Pack
+  packageVersion: 1.1.2
+  assetPath: Assets/Ventuar/MedievalCastlePack/FileAssets/Scripts/PropellerSpin.cs
+  uploadId: 427010
