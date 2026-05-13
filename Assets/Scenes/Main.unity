@@ -1085,6 +1085,11 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &29958032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+  m_PrefabInstance: {fileID: 612805269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &30608060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17493,7 +17498,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4135013735270702856, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       insertIndex: -1
       addedObject: {fileID: 792776019}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1642359367}
   m_SourcePrefab: {fileID: 100100000, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
 --- !u!1001 &616305883
 PrefabInstance:
@@ -43821,6 +43829,7 @@ GameObject:
   - component: {fileID: 1576159362}
   - component: {fileID: 1576159365}
   - component: {fileID: 1576159364}
+  - component: {fileID: 1576159366}
   m_Layer: 7
   m_Name: Zombie
   m_TagString: Untagged
@@ -43902,6 +43911,21 @@ CapsuleCollider:
   m_Height: 1.0837128
   m_Direction: 1
   m_Center: {x: -0.00055766106, y: -0.04968536, z: 0.018872738}
+--- !u!114 &1576159366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576159361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10afd390be487f943bea5b55816e646b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxHealth: 100
+  deathAnimator: {fileID: 0}
+  isDead: 0
 --- !u!1001 &1579185590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46333,6 +46357,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
   m_PrefabInstance: {fileID: 612805269}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1642359367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29958032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10afd390be487f943bea5b55816e646b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxHealth: 100
+  deathAnimator: {fileID: 0}
+  isDead: 0
 --- !u!1001 &1642843363
 PrefabInstance:
   m_ObjectHideFlags: 0

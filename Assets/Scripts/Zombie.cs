@@ -1,7 +1,7 @@
 using StarterAssets;
 using UnityEngine;
 using UnityEngine.AI;
-public class Robot : MonoBehaviour
+public class Zombie : MonoBehaviour
 {
     [SerializeField] private Animator zombieAnimator;
     FirstPersonController player;
@@ -23,7 +23,7 @@ public class Robot : MonoBehaviour
     // Update destination every frame so robot follows player
     void Update()
     {
-        if (zombieHealth.isDead) 
+        if (zombieHealth != null && zombieHealth.isDead)
         {
             agent.enabled = false; // Stop the NavMeshAgent so it doesn't slide
             return; 
