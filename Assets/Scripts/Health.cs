@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Health : MonoBehaviour
 {
@@ -24,12 +25,21 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void ResetHealthToMax()
+    {
+        currentHealth = maxHealth;
+        isDead = false;
+    }
+
     void Die()
     {
         //timed destruction allows death animation to play before object is removed from scene
         deathAnimator.SetTrigger("Die");
         isDead = true;
         Debug.Log(gameObject.name + " has died!");
-        Destroy(gameObject, 2f);
+        if (gameObject.name.Contains("Zombie"))
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
