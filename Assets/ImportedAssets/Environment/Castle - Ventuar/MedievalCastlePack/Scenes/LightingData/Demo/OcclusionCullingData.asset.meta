@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ff9de8e446322d04ba4eaab9941a5bfa
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116660
+  packageName: Low Poly Medieval Castle Pack
+  packageVersion: 1.1.2
+  assetPath: Assets/Ventuar/MedievalCastlePack/Scenes/LightingData/Demo/OcclusionCullingData.asset
+  uploadId: 427010

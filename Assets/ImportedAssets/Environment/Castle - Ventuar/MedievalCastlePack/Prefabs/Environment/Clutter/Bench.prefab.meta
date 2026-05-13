@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 238079ae4d52f9947a9e7b67c0e32950
+timeCreated: 1521343487
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116660
+  packageName: Low Poly Medieval Castle Pack
+  packageVersion: 1.1.2
+  assetPath: Assets/Ventuar/MedievalCastlePack/Prefabs/Environment/Clutter/Bench.prefab
+  uploadId: 427010

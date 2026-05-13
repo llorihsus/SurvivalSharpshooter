@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: fa2e85c4da9c0e64dbbb8ef17be3a40e
+timeCreated: 1521343500
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116660
+  packageName: Low Poly Medieval Castle Pack
+  packageVersion: 1.1.2
+  assetPath: Assets/Ventuar/MedievalCastlePack/Prefabs/Structures/Accessories/Chimney.prefab
+  uploadId: 427010
