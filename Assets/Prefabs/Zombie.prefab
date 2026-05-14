@@ -256,7 +256,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -304,6 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Robot
   zombieAnimator: {fileID: 7070123777278508618}
+  enemyData: {fileID: 11400000, guid: 5de3437ec84824d4caf936d5ef856cd3, type: 2}
 --- !u!114 &6054119764183457397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,9 +317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10afd390be487f943bea5b55816e646b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 100
+  healthData: {fileID: 11400000, guid: 37d9451f9e5d7f84a9e810b2dd333357, type: 2}
   deathAnimator: {fileID: 7070123777278508618}
-  deathDelay: 2
   isDead: 0
   disableAfterDeath: 1
   healthBar: {fileID: 9137975140019489890}
