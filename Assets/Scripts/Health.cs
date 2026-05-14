@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     public bool isDead = false;
     private float currentHealth;
     [SerializeField] private bool disableAfterDeath = false;
-    [SerializeField] public UnityEngine.UI.Image healthBar;
+    [SerializeField] public Image healthBar;
 
     private void Start()
     {
