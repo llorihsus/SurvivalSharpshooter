@@ -4,6 +4,7 @@ using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] private ObjectPool objectPool;
     [SerializeField] private int spawnCount = 1;
     [SerializeField] private float spawnInterval = 5f;
 
@@ -27,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        GameObject enemy = ObjectPool.SharedInstance.GetPooledObject();
+        GameObject enemy = objectPool.GetPooledObject();
 
         if (enemy == null)
         {
