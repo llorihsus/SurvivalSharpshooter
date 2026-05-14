@@ -57,6 +57,10 @@ public class Health : MonoBehaviour
     public void ResetHealthToMax()
     {
         currentHealth = maxHealth;
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = 1f;
+        }
         isDead = false;
 
         // Reset animation state so zombie doesn't stay dead when reused
