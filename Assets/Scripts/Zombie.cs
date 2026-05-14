@@ -52,6 +52,10 @@ public class Zombie : MonoBehaviour
         zombieAnimator.SetTrigger("Attack");
 
         yield return new WaitForSeconds(enemyData.attackDelay);
+        if (zombieHealth != null && zombieHealth.isDead)
+        {
+            yield break; // Exit if the zombie died during the attack animation
+        }
 
         // Check if player is still in range after the attack animation plays
         if (Vector3.Distance(transform.position, player.transform.position) <= agent.stoppingDistance + enemyData.attackRangeBonus)
@@ -59,6 +63,7 @@ public class Zombie : MonoBehaviour
             player.GetComponent<Health>().TakeDamage(enemyData.attackDamage);
         }
 
+        
         agent.isStopped = false; // Resume movement after the attack
         isAttacking = false;
     }

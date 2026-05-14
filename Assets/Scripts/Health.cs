@@ -1,7 +1,7 @@
 using System.Collections;
 using StarterAssets;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     public bool isDead = false;
     private float currentHealth;
     [SerializeField] private bool disableAfterDeath = false;
+    [SerializeField] public Image healthBar;
 
     private void Start()
     {
@@ -37,6 +38,10 @@ public class Health : MonoBehaviour
 
         // Reduce health
         currentHealth -= amount;
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = currentHealth / maxHealth;
+        }
         Debug.Log(gameObject.name + " health: " + currentHealth);
 
         // If health reaches 0, die
@@ -46,10 +51,25 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void Heal(float amount)
+    {
+        currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = currentHealth / maxHealth;
+        }
+    }
+
     // Resets health when reused from object pool
     public void ResetHealthToMax()
     {
         currentHealth = healthData.maxHealth;
+
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = 1f;
+        }
+
         isDead = false;
 
         // Reset animation state so zombie doesn't stay dead when reused
