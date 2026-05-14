@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     private float currentHealth;
     [SerializeField] private bool disableAfterDeath = false;
     [SerializeField] public Image healthBar;
+    [SerializeField] public GameObject deathMenu;
 
     private void Start()
     {
@@ -126,6 +127,10 @@ public class Health : MonoBehaviour
         yield return new WaitForSeconds(healthData.deathDelay);
 
         // later replace this with your game over UI
+        if (deathMenu != null)
+        {
+            deathMenu.SetActive(true);
+        }
         Debug.Log("GAME OVER");
     }
 }

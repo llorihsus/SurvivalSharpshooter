@@ -1321,7 +1321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &640972332
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29494,7 +29494,7 @@ PrefabInstance:
       objectReference: {fileID: 334085428}
     - target: {fileID: 2935434144294102315, guid: 5666db662193d2c4cbc31dbf63b1fb60, type: 3}
       propertyPath: disableAfterDeath
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3000783099840568777, guid: 5666db662193d2c4cbc31dbf63b1fb60, type: 3}
       propertyPath: adsFOV
