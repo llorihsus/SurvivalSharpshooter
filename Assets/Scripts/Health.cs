@@ -103,7 +103,7 @@ public class Health : MonoBehaviour
         // If this is the player, go to game over
         if (!disableAfterDeath)
         {
-            StartCoroutine(PlayerDeathSequence());
+            PlayerDeathSequence();
         }
 
         // If this is a zombie, disable after delay for pooling
@@ -122,9 +122,9 @@ public class Health : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private IEnumerator PlayerDeathSequence()
+    private void PlayerDeathSequence()
     {
-        yield return new WaitForSeconds(healthData.deathDelay);
+        // yield return new WaitForSeconds(healthData.deathDelay);
 
         // later replace this with your game over UI
         if (deathMenu != null)
