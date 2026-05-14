@@ -4118,7 +4118,7 @@ MonoBehaviour:
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
   fullDayLength: 360
-  timeOfDay: 0.263
+  timeOfDay: 0.7
   timeText: {fileID: 214522542}
   playerHealth: {fileID: 5854470755463901963}
   player: {fileID: 5854470755463901964}
