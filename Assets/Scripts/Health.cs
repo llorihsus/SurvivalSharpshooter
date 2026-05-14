@@ -130,6 +130,8 @@ public class Health : MonoBehaviour
         if (deathMenu != null)
         {
             deathMenu.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         Debug.Log("GAME OVER");
     }
