@@ -43,12 +43,20 @@ public class Health : MonoBehaviour
         {
             healthBar.fillAmount = currentHealth / healthData.maxHealth;
         }
+
         Debug.Log(gameObject.name + " health: " + currentHealth);
 
         // If health reaches 0, die
         if (currentHealth <= 0)
         {
             Die();
+            return;
+        }
+
+        Ghoul ghoul = GetComponent<Ghoul>();
+        if (ghoul != null)
+        {
+            ghoul.PlayHurtAnimation();
         }
     }
 
