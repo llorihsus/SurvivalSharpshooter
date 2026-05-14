@@ -1,28 +1,19 @@
-using System;
 using System.Collections;
 using StarterAssets;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-
-public static class GameEvents
-{
-    public static Action OnWin;
-}
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private HealthData healthData; // ScriptableObject for health values
     [SerializeField] private Animator deathAnimator; // Reference to Animator 
     public bool isDead = false;
-    public static int killCount = 0;
-    public int winKillCount = 10; // Number of kills needed to win
+
     private float currentHealth;
+
     [SerializeField] private bool disableAfterDeath = false;
     [SerializeField] public Image healthBar;
     [SerializeField] public GameObject deathMenu;
-    [SerializeField] public GameObject winMenu;
-    [SerializeField] public TMP_Text killCountText; // kill count text
 
     private void Start()
     {
@@ -50,6 +41,7 @@ public class Health : MonoBehaviour
 
         // Reduce health
         currentHealth -= amount;
+
         if (healthBar != null)
         {
             healthBar.fillAmount = currentHealth / healthData.maxHealth;
@@ -79,6 +71,7 @@ public class Health : MonoBehaviour
     public void Heal(float amount)
     {
         currentHealth = Mathf.Min(healthData.maxHealth, currentHealth + amount);
+
         if (healthBar != null)
         {
             healthBar.fillAmount = currentHealth / healthData.maxHealth;
@@ -141,25 +134,20 @@ public class Health : MonoBehaviour
         {
             AudioManager.Instance.PlayPlayerDeath();
             PlayerDeathSequence();
+            return;
         }
 
         // If this is a zombie, disable after delay for pooling
         if (disableAfterDeath)
         {
             AudioManager.Instance.PlayZombieDeath();
-            StartCoroutine(DisableAfterDeathAnimation());
-            killCount++;
-            if (killCount >= winKillCount)
-            {
-                GameEvents.OnWin?.Invoke();
-            }
-            Debug.Log("Kill Count: " + killCount);
-        }
-    }
 
-    void OnEnable()
-    {
-        GameEvents.OnWin += WinSequence;
+            GameEvents.OnEnemyKilled?.Invoke();
+
+            Debug.Log(gameObject.name + " counted as enemy kill");
+
+            StartCoroutine(DisableAfterDeathAnimation());
+        }
     }
 
     // Waits for animation to finish, then disables object (for pooling)
@@ -181,28 +169,9 @@ public class Health : MonoBehaviour
             deathMenu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            killCount = 0; // reset kill count on player death
             Time.timeScale = 0f; // pause the game
         }
-        Debug.Log("GAME OVER");
-    }
 
-    private void WinSequence()
-    {
-        // Show win menu
-        if (winMenu != null)
-        {
-            TMP_Text killCountDisplay = killCountText.GetComponent<TMP_Text>();
-            if (killCountDisplay != null)
-            {
-                killCountDisplay.text = "You killed " + killCount + " Enemies!";
-            }
-            winMenu.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            Time.timeScale = 0f; // pause the game
-            killCount = 0; // reset kill count after winning
-        }
-        Debug.Log("YOU WIN!");
+        Debug.Log("GAME OVER");
     }
 }

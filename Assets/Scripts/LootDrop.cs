@@ -11,7 +11,6 @@ public class LootDrop : MonoBehaviour
     }
 
     [SerializeField] private LootEntry[] lootTable;
-    [SerializeField] private float spawnHeight = 1f;
 
     private bool hasDroppedLoot = false;
 

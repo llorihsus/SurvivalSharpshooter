@@ -57,10 +57,6 @@ public class PickupLogic : MonoBehaviour
                     activeWeapon.AddAmmo(amount);
                 }
                 break;
-
-            case "Glass of Blood":
-                Debug.Log("Glass of Blood picked up. Hunger system will use this later.");
-                break;
         }
 
         UpdateUI();

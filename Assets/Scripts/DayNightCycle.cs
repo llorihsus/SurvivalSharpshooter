@@ -100,7 +100,7 @@ public class DayNightCycle : MonoBehaviour
     {
         if (playerHealth == null || player == null || sun == null) return;
 
-        bool isDaytime = timeOfDay >= 0.45f && timeOfDay < 0.70f;
+        bool isDaytime = timeOfDay >= 0.25f && timeOfDay < 0.7f;
         if (!isDaytime) return;
 
         Vector3 rayStart = player.position + Vector3.up * 1.5f;
@@ -131,5 +131,9 @@ public class DayNightCycle : MonoBehaviour
         {
             playerHealth.TakeDamage(damage);
         }
+    }
+    public void SkipToSunset()
+    {
+        timeOfDay = 0.7f; // sunset
     }
 }
