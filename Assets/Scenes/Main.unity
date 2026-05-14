@@ -521,8 +521,6 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &196957213
 MonoBehaviour:
---- !u!1 &220849164
-GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -534,6 +532,12 @@ GameObject:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   weaponData: {fileID: 11400000, guid: 8869a58b3e2a44443b7bbb9473567d19, type: 2}
+--- !u!1 &220849164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 220849165}
@@ -2886,6 +2890,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1311436207359505882, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
+      propertyPath: Priority.Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311436207359505882, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
+      propertyPath: Priority.m_Value
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311436207359505882, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
+      propertyPath: m_LegacyPriority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311436207359505882, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
+      propertyPath: Lens.NearClipPlane
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311436207359505882, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
+      propertyPath: m_StreamingVersion
+      value: 20241001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311436207359505882, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
+      propertyPath: Target.TrackingTarget
+      value: 
+      objectReference: {fileID: 1850036022}
+    - target: {fileID: 1311436207359505882, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
+      propertyPath: Target.CustomLookAtTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395077, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_Name
       value: PlayerFollowCamera
@@ -2958,7 +2990,13 @@ PrefabInstance:
       propertyPath: PivotOffset.z
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9219782216347468882, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
+      propertyPath: PivotOffset.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8762286023885395323, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
+    - {fileID: 6018343809745238194, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -28896,6 +28934,22 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 334085428}
+    - target: {fileID: 3000783099840568777, guid: 5666db662193d2c4cbc31dbf63b1fb60, type: 3}
+      propertyPath: adsFOV
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000783099840568777, guid: 5666db662193d2c4cbc31dbf63b1fb60, type: 3}
+      propertyPath: adsSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000783099840568777, guid: 5666db662193d2c4cbc31dbf63b1fb60, type: 3}
+      propertyPath: normalFOV
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000783099840568777, guid: 5666db662193d2c4cbc31dbf63b1fb60, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 612265516}
     - target: {fileID: 3000783099840568777, guid: 5666db662193d2c4cbc31dbf63b1fb60, type: 3}
       propertyPath: weaponHolder
       value: 

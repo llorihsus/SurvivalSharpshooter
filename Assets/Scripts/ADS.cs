@@ -1,12 +1,11 @@
-using UnityEngine;
 using StarterAssets;
-using Cinemachine;
+using UnityEngine;
+using Unity.Cinemachine;
 
 public class ADS : MonoBehaviour
 {
-    [Header("References")]
     [SerializeField] private Transform weaponHolder;
-    [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private CinemachineCamera virtualCamera;
 
     [Header("ADS Transform")]
     [SerializeField] private Vector3 adsPosition;
@@ -21,7 +20,6 @@ public class ADS : MonoBehaviour
 
     private Vector3 normalPosition;
     private Quaternion normalRotation;
-
     private StarterAssetsInputs input;
 
     private void Start()
@@ -34,12 +32,10 @@ public class ADS : MonoBehaviour
 
     private void Update()
     {
-        if (input == null || weaponHolder == null || virtualCamera == null)
-            return;
+        if (input == null || weaponHolder == null || virtualCamera == null) return;
 
         bool isAiming = input.aim;
 
-        // Move weapon
         weaponHolder.localPosition = Vector3.Lerp(
             weaponHolder.localPosition,
             isAiming ? adsPosition : normalPosition,
@@ -52,9 +48,8 @@ public class ADS : MonoBehaviour
             Time.deltaTime * adsSpeed
         );
 
-        // FOV zoom (THIS is the important part)
-        virtualCamera.m_Lens.FieldOfView = Mathf.Lerp(
-            virtualCamera.m_Lens.FieldOfView,
+        virtualCamera.Lens.FieldOfView = Mathf.Lerp(
+            virtualCamera.Lens.FieldOfView,
             isAiming ? adsFOV : normalFOV,
             Time.deltaTime * adsSpeed
         );
