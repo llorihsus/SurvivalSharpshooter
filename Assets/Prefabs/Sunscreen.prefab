@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FloatingPickup
   bobSpeed: 2
-  bobHeight: 0.1
+  bobHeight: 0.2
   rotateSpeed: 60
   itemName: Sunscreen
   amount: 10
