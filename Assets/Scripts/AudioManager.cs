@@ -10,19 +10,23 @@ public class AudioManager : MonoBehaviour
     [Header("SFX")]
     [SerializeField] AudioSource sfxSource;
 
+    [Header("Clips")]
     [SerializeField] AudioClip gunshotSFX;
-    [SerializeField] AudioClip takeDamageSFX;
-    [SerializeField] AudioClip deathSFX;
+    [SerializeField] AudioClip zombieAttackSFX;
+    [SerializeField] AudioClip playerDamageSFX;
+    [SerializeField] AudioClip playerDeathSFX;
+    [SerializeField] AudioClip zombieDeathSFX;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         if (Instance != null) { Destroy(gameObject); return; }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public void PlayGunShot()  => sfxSource.PlayOneShot(gunshotSFX);
-    public void PlayTakeDamage() => sfxSource.PlayOneShot(takeDamageSFX);
-    public void PlayDeath() => sfxSource.PlayOneShot(deathSFX);
+    public void PlayZombieAttack() => sfxSource.PlayOneShot(zombieAttackSFX);
+    public void PlayPlayerDamage() => sfxSource.PlayOneShot(playerDamageSFX);
+    public void PlayPlayerDeath() => sfxSource.PlayOneShot(playerDeathSFX);
+    public void PlayZombieDeath() => sfxSource.PlayOneShot(zombieDeathSFX);
 }

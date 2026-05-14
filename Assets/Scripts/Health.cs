@@ -58,6 +58,11 @@ public class Health : MonoBehaviour
         {
             ghoul.PlayHurtAnimation();
         }
+
+        if (disableAfterDeath == false)
+        {
+            AudioManager.Instance.PlayPlayerDamage();
+        }
     }
 
     public void Heal(float amount)
@@ -111,12 +116,14 @@ public class Health : MonoBehaviour
         // If this is the player, go to game over
         if (!disableAfterDeath)
         {
+            AudioManager.Instance.PlayPlayerDeath();
             PlayerDeathSequence();
         }
 
         // If this is a zombie, disable after delay for pooling
         if (disableAfterDeath)
         {
+            AudioManager.Instance.PlayZombieDeath();
             StartCoroutine(DisableAfterDeathAnimation());
         }
     }

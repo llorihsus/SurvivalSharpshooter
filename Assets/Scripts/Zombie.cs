@@ -61,6 +61,7 @@ public class Zombie : MonoBehaviour
         if (Vector3.Distance(transform.position, player.transform.position) <= agent.stoppingDistance + enemyData.attackRangeBonus)
         {
             player.GetComponent<Health>().TakeDamage(enemyData.attackDamage);
+            AudioManager.Instance.PlayZombieAttack();
         }
 
         

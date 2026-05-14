@@ -27,7 +27,8 @@ public class Weapon : MonoBehaviour
             if (combatController != null && combatController.IsSwitching) return; // Do not shoot while switching weapons
 
             RaycastHit hit; //A raycast fires an invisible ray from an origin point in a direction and returns the first collider it intersects.
-
+            AudioManager.Instance.PlayGunShot();
+            
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, weaponData.range))
             {
                 Debug.Log(hit.collider.name);
