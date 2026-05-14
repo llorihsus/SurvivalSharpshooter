@@ -40,7 +40,7 @@ public class Health : MonoBehaviour
         currentHealth -= amount;
         if (healthBar != null)
         {
-            healthBar.fillAmount = currentHealth / maxHealth;
+            healthBar.fillAmount = currentHealth / healthData.maxHealth;
         }
         Debug.Log(gameObject.name + " health: " + currentHealth);
 
@@ -53,10 +53,10 @@ public class Health : MonoBehaviour
 
     public void Heal(float amount)
     {
-        currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
+        currentHealth = Mathf.Min(healthData.maxHealth, currentHealth + amount);
         if (healthBar != null)
         {
-            healthBar.fillAmount = currentHealth / maxHealth;
+            healthBar.fillAmount = currentHealth / healthData.maxHealth;
         }
     }
 

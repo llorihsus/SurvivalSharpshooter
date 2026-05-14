@@ -1,10 +1,12 @@
-using StarterAssets;
 using UnityEngine;
+using StarterAssets;
+using Cinemachine;
 
 public class ADS : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private Transform weaponHolder;
-    [SerializeField] private Camera playerCamera;
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
 
     [Header("ADS Transform")]
     [SerializeField] private Vector3 adsPosition;
@@ -12,13 +14,14 @@ public class ADS : MonoBehaviour
 
     [Header("FOV")]
     [SerializeField] private float normalFOV = 60f;
-    [SerializeField] private float adsFOV = 40f;
+    [SerializeField] private float adsFOV = 30f;
 
     [Header("Speed")]
     [SerializeField] private float adsSpeed = 10f;
 
     private Vector3 normalPosition;
     private Quaternion normalRotation;
+
     private StarterAssetsInputs input;
 
     private void Start()
@@ -27,36 +30,31 @@ public class ADS : MonoBehaviour
 
         normalPosition = weaponHolder.localPosition;
         normalRotation = weaponHolder.localRotation;
-
-        if (playerCamera == null)
-        {
-            playerCamera = Camera.main;
-        }
     }
 
     private void Update()
     {
-        if (input == null || weaponHolder == null || playerCamera == null) return;
+        if (input == null || weaponHolder == null || virtualCamera == null)
+            return;
 
         bool isAiming = input.aim;
 
-        Vector3 targetPosition = isAiming ? adsPosition : normalPosition;
-        Quaternion targetRotation = isAiming ? Quaternion.Euler(adsRotation) : normalRotation;
-
+        // Move weapon
         weaponHolder.localPosition = Vector3.Lerp(
             weaponHolder.localPosition,
-            targetPosition,
+            isAiming ? adsPosition : normalPosition,
             Time.deltaTime * adsSpeed
         );
 
         weaponHolder.localRotation = Quaternion.Lerp(
             weaponHolder.localRotation,
-            targetRotation,
+            isAiming ? Quaternion.Euler(adsRotation) : normalRotation,
             Time.deltaTime * adsSpeed
         );
 
-        playerCamera.fieldOfView = Mathf.Lerp(
-            playerCamera.fieldOfView,
+        // FOV zoom (THIS is the important part)
+        virtualCamera.m_Lens.FieldOfView = Mathf.Lerp(
+            virtualCamera.m_Lens.FieldOfView,
             isAiming ? adsFOV : normalFOV,
             Time.deltaTime * adsSpeed
         );
