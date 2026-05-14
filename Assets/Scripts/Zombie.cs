@@ -49,7 +49,7 @@ public class Zombie : MonoBehaviour
 
         if (zombieHealth != null && zombieHealth.isDead)
         {
-            yield return null; // Exit if the zombie died during the attack animation
+            yield break; // Exit if the zombie died during the attack animation
         }
 
         // Check if player is still in range after the attack animation plays
