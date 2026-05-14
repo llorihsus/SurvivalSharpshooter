@@ -3,8 +3,8 @@ using StarterAssets;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] float damage = 25f;
-    StarterAssetsInputs starterAssetsInputs;
+    [SerializeField] private WeaponData weaponData;
+    private StarterAssetsInputs starterAssetsInputs;
     private PlayerCombatController combatController;
 
     private void Awake()
@@ -28,14 +28,14 @@ public class Weapon : MonoBehaviour
 
             RaycastHit hit; //A raycast fires an invisible ray from an origin point in a direction and returns the first collider it intersects.
 
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, weaponData.range))
             {
                 Debug.Log(hit.collider.name);
                 Health health = hit.collider.GetComponent<Health>();
 
                 if (health != null)
                 {
-                    health.TakeDamage(damage);
+                    health.TakeDamage(weaponData.damage);
                 }
             }
 
