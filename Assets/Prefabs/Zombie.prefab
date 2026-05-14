@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 2683096505861722453}
   - component: {fileID: 1448662537646093720}
   - component: {fileID: 6054119764183457397}
+  - component: {fileID: 7642054018755858192}
   m_Layer: 7
   m_Name: Zombie
   m_TagString: Untagged
@@ -322,6 +323,32 @@ MonoBehaviour:
   isDead: 0
   disableAfterDeath: 1
   healthBar: {fileID: 9137975140019489890}
+  deathMenu: {fileID: 0}
+--- !u!114 &7642054018755858192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883915980930838690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26101ee063506424db8bea62892d3e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LootDrop
+  lootTable:
+  - itemName: Nothing
+    prefab: {fileID: 0}
+    weight: 20
+  - itemName: Healing Potion
+    prefab: {fileID: 3466479113387984991, guid: 69f950cd8d342fa4d8017cf2afdd788f, type: 3}
+    weight: 20
+  - itemName: Ammo
+    prefab: {fileID: 8597714936436605484, guid: bfea50c70a068644db401e34db17ba21, type: 3}
+    weight: 40
+  - itemName: Sunscreen
+    prefab: {fileID: 6113962666189946725, guid: d6f92697ddc4aff4ba1baf834331b4a7, type: 3}
+    weight: 20
 --- !u!1 &6317203024379460591
 GameObject:
   m_ObjectHideFlags: 0

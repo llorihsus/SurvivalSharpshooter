@@ -12,13 +12,6 @@ public class Ghoul : MonoBehaviour
     private NavMeshAgent agent;
     private Health goulHealth;
     private bool isAttacking = false;
-    private bool isHit = false;
-
-    [SerializeField] private float hitSlowDuration = 0.4f;
-    [SerializeField] private float hitSlowMultiplier = 0.25f;
-
-    private float originalSpeed;
-    private Coroutine hitSlowRoutine;
 
     private void Awake()
     {

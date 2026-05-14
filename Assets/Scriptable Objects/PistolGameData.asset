@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PistolGameData
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   damage: 25
-  range: 50
+  range: 25
   adsPosition: {x: 0, y: 0, z: 0}
   adsRotation: {x: 0, y: 0, z: 0}
   normalFOV: 60

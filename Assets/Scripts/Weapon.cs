@@ -4,8 +4,21 @@ using StarterAssets;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private WeaponData weaponData;
+    [SerializeField] public ParticleSystem hitEffect;
+    [SerializeField] public ParticleSystem muzzleFlash;
+
+    [Header("Ammo")]
+    public int currentAmmo = 10;
+    public int maxAmmo = 60;
+
     private StarterAssetsInputs starterAssetsInputs;
     private PlayerCombatController combatController;
+
+    [Header("Weapon Settings")]
+    public bool isAutomatic = false;
+    public float fireRate = 5f; // shots per second
+
+    private float nextTimeToFire = 0f;
 
     private void Awake()
     {
@@ -22,27 +35,105 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (starterAssetsInputs == null) return;
+
         if (starterAssetsInputs.shoot)
         {
             if (combatController != null && combatController.IsSwitching) return; // Do not shoot while switching weapons
 
-            RaycastHit hit; //A raycast fires an invisible ray from an origin point in a direction and returns the first collider it intersects.
+            if (!CanShoot())
+            {
+                // For pistol / single fire weapons, stop this click from staying stuck as true
+                if (!isAutomatic)
+                {
+                    starterAssetsInputs.ShootInput(false);
+                }
 
+                return;
+            }
+
+            RaycastHit hit; //A raycast fires an invisible ray from an origin point in a direction and returns the first collider it intersects.
+            AudioManager.Instance.PlayGunShot();
+            
+            Vector3 weaponPos = transform.position;
+            weaponPos += transform.forward;
+            ParticleSystem flash = Instantiate(muzzleFlash, weaponPos, Quaternion.identity);
+            Destroy(flash.gameObject, flash.main.duration + flash.main.startLifetime.constantMax);
+            
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, weaponData.range))
             {
                 Debug.Log(hit.collider.name);
                 Health health = hit.collider.GetComponent<Health>();
-
                 if (health != null)
                 {
                     health.TakeDamage(weaponData.damage);
+                    ParticleSystem effect = Instantiate(hitEffect, hit.point, Quaternion.identity);
+                    effect.transform.forward = hit.normal;
+                    Destroy(effect.gameObject, effect.main.duration + effect.main.startLifetime.constantMax);
                 }
             }
+            Shoot();
 
             // Reset shoot to false OUTSIDE the raycast if-block
-            starterAssetsInputs.ShootInput(false);
-            // ShootInput(false) must be OUTSIDE the inner raycast if-block but INSIDE the outer shoot check. If you put it inside the raycast block, aiming at empty sky will leave shoot stuck as true forever � the gun fires every frame until it hits something.
+            if (!isAutomatic)
+            {
+                starterAssetsInputs.ShootInput(false);
+            }
+
+            // ShootInput(false) must be OUTSIDE the inner raycast if-block but INSIDE the outer shoot check. If you put it inside the raycast block, aiming at empty sky will leave shoot stuck as true forever — the gun fires every frame until it hits something.
+            // For automatic weapons, we do NOT reset shoot here, because holding the button should keep firing.
+            // For pistol / single fire weapons, we DO reset shoot here, because one click should only shoot once.
         }
-        
+    }
+
+    private void Shoot()
+    {
+        if (!UseAmmo(1))
+        {
+            Debug.Log(gameObject.name + " is out of ammo!");
+            starterAssetsInputs.ShootInput(false);
+            return;
+        }
+
+        nextTimeToFire = Time.time + (1f / fireRate);
+
+        RaycastHit hit; //A raycast fires an invisible ray from an origin point in a direction and returns the first collider it intersects.
+        AudioManager.Instance.PlayGunShot();
+
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, weaponData.range))
+        {
+            Debug.Log(hit.collider.name);
+            Health health = hit.collider.GetComponent<Health>();
+
+            if (health != null)
+            {
+                health.TakeDamage(weaponData.damage);
+            }
+        }
+    }
+
+    public bool AddAmmo(int amount)
+    {
+        if (currentAmmo >= maxAmmo) return false;
+
+        currentAmmo = Mathf.Min(maxAmmo, currentAmmo + amount);
+        Debug.Log(gameObject.name + " ammo: " + currentAmmo + " / " + maxAmmo);
+
+        return true;
+    }
+
+    private bool UseAmmo(int amount)
+    {
+        if (currentAmmo < amount) return false;
+
+        currentAmmo -= amount;
+        Debug.Log(gameObject.name + " ammo: " + currentAmmo + " / " + maxAmmo);
+
+        return true;
+    }
+
+    public bool CanShoot()
+    {
+        return Time.time >= nextTimeToFire;
     }
 }
