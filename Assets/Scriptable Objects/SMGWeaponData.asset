@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0991eab6c87ce2478e379ad6dad091f, type: 3}
   m_Name: SMGWeaponData
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  damage: 50
+  damage: 15
   range: 100
   adsPosition: {x: 0, y: 0, z: 0}
   adsRotation: {x: 0, y: 0, z: 0}
