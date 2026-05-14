@@ -717,6 +717,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   weaponData: {fileID: 11400000, guid: 8869a58b3e2a44443b7bbb9473567d19, type: 2}
+  hitEffect: {fileID: 198498569432132500, guid: 6c86c599d7bf3464eb4506d2584fbe57, type: 3}
+  muzzleFlash: {fileID: 198433644796749458, guid: 14cf9b5bc3f9faf4ca5ce80298f43111, type: 3}
   currentAmmo: 40
   maxAmmo: 180
 --- !u!1 &214522540
@@ -1239,7 +1241,7 @@ MonoBehaviour:
   sfxSource: {fileID: 1941777825}
   gunshotSFX: {fileID: 8300000, guid: 6e6fecfe3348a3c4c94b094c11f3a251, type: 3}
   zombieAttackSFX: {fileID: 8300000, guid: e0a2a086bbf02ca4da0af86187f999d3, type: 3}
-  takeDamageSFX: {fileID: 0}
+  playerDamageSFX: {fileID: 0}
   playerDeathSFX: {fileID: 8300000, guid: 73106fc34315ebf44b65fcec7c9fa4f6, type: 3}
   zombieDeathSFX: {fileID: 8300000, guid: 069932d13f8e6154fb4ba7b2a670926c, type: 3}
 --- !u!4 &381187187
@@ -31041,6 +31043,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 703679476272904245, guid: 5666db662193d2c4cbc31dbf63b1fb60, type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 198498569432132500, guid: 6c86c599d7bf3464eb4506d2584fbe57, type: 3}
+    - target: {fileID: 703679476272904245, guid: 5666db662193d2c4cbc31dbf63b1fb60, type: 3}
       propertyPath: weaponData
       value: 
       objectReference: {fileID: 11400000, guid: a66888f422b8cee4c96297681dcf96a3, type: 2}
@@ -31048,6 +31054,10 @@ PrefabInstance:
       propertyPath: currentAmmo
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 703679476272904245, guid: 5666db662193d2c4cbc31dbf63b1fb60, type: 3}
+      propertyPath: muzzleFlash
+      value: 
+      objectReference: {fileID: 198433644796749458, guid: 14cf9b5bc3f9faf4ca5ce80298f43111, type: 3}
     - target: {fileID: 1476874198255441110, guid: 5666db662193d2c4cbc31dbf63b1fb60, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
