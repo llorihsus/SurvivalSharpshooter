@@ -4,6 +4,8 @@ using StarterAssets;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private WeaponData weaponData;
+    [SerializeField] public ParticleSystem hitEffect;
+    [SerializeField] public ParticleSystem muzzleFlash;
 
     [Header("Ammo")]
     public int currentAmmo = 10;
@@ -41,14 +43,21 @@ public class Weapon : MonoBehaviour
             RaycastHit hit; //A raycast fires an invisible ray from an origin point in a direction and returns the first collider it intersects.
             AudioManager.Instance.PlayGunShot();
             
+            Vector3 weaponPos = transform.position;
+            weaponPos += transform.forward;
+            ParticleSystem flash = Instantiate(muzzleFlash, weaponPos, Quaternion.identity);
+            Destroy(flash.gameObject, flash.main.duration + flash.main.startLifetime.constantMax);
+            
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, weaponData.range))
             {
                 Debug.Log(hit.collider.name);
                 Health health = hit.collider.GetComponent<Health>();
-
                 if (health != null)
                 {
                     health.TakeDamage(weaponData.damage);
+                    ParticleSystem effect = Instantiate(hitEffect, hit.point, Quaternion.identity);
+                    effect.transform.forward = hit.normal;
+                    Destroy(effect.gameObject, effect.main.duration + effect.main.startLifetime.constantMax);
                 }
             }
 
