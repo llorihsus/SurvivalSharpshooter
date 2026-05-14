@@ -86,6 +86,12 @@ public class Health : MonoBehaviour
 
         isDead = false;
 
+        LootDrop lootDrop = GetComponent<LootDrop>();
+        if (lootDrop != null)
+        {
+            lootDrop.ResetLootDrop();
+        }
+
         // Reset animation state so zombie doesn't stay dead when reused
         if (deathAnimator != null)
         {
@@ -99,6 +105,12 @@ public class Health : MonoBehaviour
     {
         isDead = true;
         Debug.Log(gameObject.name + " has died!");
+
+        LootDrop lootDrop = GetComponent<LootDrop>();
+        if (lootDrop != null)
+        {
+            lootDrop.DropLoot();
+        }
 
         // Stop player movement
         FirstPersonController controller = GetComponent<FirstPersonController>();
