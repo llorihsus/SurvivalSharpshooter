@@ -1,34 +1,43 @@
-# SurvivalSharpshooter
+# Vampire VS The Sun
 
-## Sharpshooter Tasks:
+This is a single player FPS experience where you must survive a day of zombies as a vampire.
 
-- gun varieties
-- moving enemies
-  - spawning enemies
-- changing weapons
-- ammo?
-- player health / damage
+This game uses standard keyboard controls such as WASD for directional movement and the mouse/pointer for aiming and interacting with enemies.
 
-## Survival Tasks:
+## Build Instructions
+- Clone this repo to your local machine
+- Add the cloned repo to Unity Hub as a Unity Project using `Add from repository`
+- Open the project in the Unity Editor
+- File -> Build And Run
 
-- light interactions
-  - sunscreen mechanic
-  - tick damage player when light hits player
-- pick up weapons / manage weapons (inventory)
-  - crafting mechanism (2 items)
-- world generation (tiled)
-- day/night cycle
-  - weather cycle
-- mob spawning / chase behavior
+## Features
+- Sunlight must be avoided
+  - Can pick up items to defend yourself against zombies and the sun
+- Two Weapons with aim-down-sights capabilities: a pistol and a machine gun
+- Smart pathfinding AI
+- Large map to traverse and defend
 
-## Misc:
+## Known Issues
+- Could have performance issues on lower-end machines
 
-- multiplayer functionality
-
-## Contributions:
-- content creator
-  - content manager
-  - music/audio track developer
-  - game AI developer
-- game developer
-
+## Asset Attributions
+- All Unity Assets were free and found in the Unity Asset Store
+  - Vampire Model (gliptoart)
+  - Skybox (BOXOPHOBIC)
+  - NecroPOLY Dark Corners (EmacEArt)
+  - Nature (SimpleNaturePack)
+  - Castle (Ventuar)
+  - Dungeon (BrokenVector)
+  - Potions (PolyKebap)
+  - Crosshairs (OccaSoftware)
+  - Healthbar (Ilumisoft)
+  - Revolver (eretichable Technologies)
+  - M1A1 (20th Century Weapons Collection)
+  - Zombie (Supercyan)
+- All SFX were taken from [`freesound.org`](https://freesound.org/)
+  - Gun shot (shades)
+  - Zombie growl (mrpokephile)
+  - Zombie death (tonsil5)
+  - Spooky Jim is in the House (Victor Natas)
+  - Grunts (aulix24)
+  - Mummy Zombie Death (frostnox)
