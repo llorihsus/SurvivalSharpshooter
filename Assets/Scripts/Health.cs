@@ -5,16 +5,23 @@ using UnityEngine.AI;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private HealthData healthData; // ScriptableObject for health values
     [SerializeField] private Animator deathAnimator; // Reference to Animator 
-    [SerializeField] private float deathDelay = 2f;   // How long to wait before disabling object (length of death animation)
     public bool isDead = false;
     private float currentHealth;
     [SerializeField] private bool disableAfterDeath = false;
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        if (healthData == null)
+        {
+            Debug.LogError(gameObject.name + " is missing HealthData!");
+            enabled = false;
+            return;
+        }
+
+        // Initialize health from ScriptableObject
+        currentHealth = healthData.maxHealth;
 
         // If animator not assigned in Inspector, grab it automatically
         if (deathAnimator == null)
@@ -42,7 +49,7 @@ public class Health : MonoBehaviour
     // Resets health when reused from object pool
     public void ResetHealthToMax()
     {
-        currentHealth = maxHealth;
+        currentHealth = healthData.maxHealth;
         isDead = false;
 
         // Reset animation state so zombie doesn't stay dead when reused
@@ -88,7 +95,7 @@ public class Health : MonoBehaviour
     // Waits for animation to finish, then disables object (for pooling)
     private IEnumerator DisableAfterDeathAnimation()
     {
-        yield return new WaitForSeconds(deathDelay);
+        yield return new WaitForSeconds(healthData.deathDelay);
 
         //Do NOT destroy, just disable for object pooling
         gameObject.SetActive(false);
@@ -96,7 +103,7 @@ public class Health : MonoBehaviour
 
     private IEnumerator PlayerDeathSequence()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(healthData.deathDelay);
 
         // later replace this with your game over UI
         Debug.Log("GAME OVER");
