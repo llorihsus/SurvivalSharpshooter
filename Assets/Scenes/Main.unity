@@ -721,6 +721,8 @@ MonoBehaviour:
   muzzleFlash: {fileID: 198433644796749458, guid: 14cf9b5bc3f9faf4ca5ce80298f43111, type: 3}
   currentAmmo: 40
   maxAmmo: 180
+  isAutomatic: 1
+  fireRate: 8
 --- !u!1 &214522540
 GameObject:
   m_ObjectHideFlags: 0
@@ -31042,6 +31044,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 703679476272904245, guid: 5666db662193d2c4cbc31dbf63b1fb60, type: 3}
+      propertyPath: fireRate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 703679476272904245, guid: 5666db662193d2c4cbc31dbf63b1fb60, type: 3}
       propertyPath: hitEffect
       value: 
