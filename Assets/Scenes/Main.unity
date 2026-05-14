@@ -719,8 +719,6 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: 8869a58b3e2a44443b7bbb9473567d19, type: 2}
   currentAmmo: 40
   maxAmmo: 180
-  isAutomatic: 1
-  fireRate: 8
 --- !u!1 &214522540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,7 +1239,7 @@ MonoBehaviour:
   sfxSource: {fileID: 1941777825}
   gunshotSFX: {fileID: 8300000, guid: 6e6fecfe3348a3c4c94b094c11f3a251, type: 3}
   zombieAttackSFX: {fileID: 8300000, guid: e0a2a086bbf02ca4da0af86187f999d3, type: 3}
-  playerDamageSFX: {fileID: 0}
+  takeDamageSFX: {fileID: 0}
   playerDeathSFX: {fileID: 8300000, guid: 73106fc34315ebf44b65fcec7c9fa4f6, type: 3}
   zombieDeathSFX: {fileID: 8300000, guid: 069932d13f8e6154fb4ba7b2a670926c, type: 3}
 --- !u!4 &381187187
@@ -4707,7 +4705,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 2eb1453c50e74bc4f9911d4f6bfde676, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -31042,14 +31040,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 703679476272904245, guid: 5666db662193d2c4cbc31dbf63b1fb60, type: 3}
-      propertyPath: maxAmmo
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 703679476272904245, guid: 5666db662193d2c4cbc31dbf63b1fb60, type: 3}
-      propertyPath: fireRate
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 703679476272904245, guid: 5666db662193d2c4cbc31dbf63b1fb60, type: 3}
       propertyPath: weaponData
       value: 
