@@ -5,6 +5,7 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] float damage = 25f;
     StarterAssetsInputs starterAssetsInputs;
+    private PlayerCombatController combatController;
 
     private void Awake()
     {
@@ -15,7 +16,7 @@ public class Weapon : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        combatController = GetComponentInParent<PlayerCombatController>();
     }
 
     // Update is called once per frame
@@ -23,6 +24,8 @@ public class Weapon : MonoBehaviour
     {
         if (starterAssetsInputs.shoot)
         {
+            if (combatController != null && combatController.IsSwitching) return; // Do not shoot while switching weapons
+
             RaycastHit hit; //A raycast fires an invisible ray from an origin point in a direction and returns the first collider it intersects.
 
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))

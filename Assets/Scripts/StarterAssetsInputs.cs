@@ -13,13 +13,19 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		public bool shoot;
+        public bool melee;
+        public bool weapon1;
+        public bool weapon2;
+		public bool aim;
 
-		[Header("Movement Settings")]
+        [Header("Movement Settings")]
 		public bool analogMovement;
 
 		[Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
+
+
 
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
@@ -34,9 +40,28 @@ namespace StarterAssets
 				LookInput(value.Get<Vector2>());
 			}
 		}
+        public void OnAim(InputValue value)
+        {
+            aim = value.isPressed;
+        }
 
-		//Called automatically by PlayerInput's Send Messages
-		public void OnShoot(InputValue value)
+        public void OnMelee(InputValue value)
+        {
+            melee = value.isPressed;
+        }
+
+        public void OnWeapon1(InputValue value)
+        {
+            weapon1 = value.isPressed;
+        }
+
+        public void OnWeapon2(InputValue value)
+        {
+            weapon2 = value.isPressed;
+        }
+
+        //Called automatically by PlayerInput's Send Messages
+        public void OnShoot(InputValue value)
 		{
 			ShootInput(value.isPressed);
 		}
