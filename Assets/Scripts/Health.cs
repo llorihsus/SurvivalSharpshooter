@@ -1,7 +1,7 @@
 using System.Collections;
 using StarterAssets;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     public bool isDead = false;
     private float currentHealth;
     [SerializeField] private bool disableAfterDeath = false;
+    [SerializeField] public UnityEngine.UI.Image healthBar;
 
     private void Start()
     {
@@ -30,12 +31,25 @@ public class Health : MonoBehaviour
 
         // Reduce health
         currentHealth -= amount;
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = currentHealth / maxHealth;
+        }
         Debug.Log(gameObject.name + " health: " + currentHealth);
 
         // If health reaches 0, die
         if (currentHealth <= 0)
         {
             Die();
+        }
+    }
+
+    public void Heal(float amount)
+    {
+        currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = currentHealth / maxHealth;
         }
     }
 
