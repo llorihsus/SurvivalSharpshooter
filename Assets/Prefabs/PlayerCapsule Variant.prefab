@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCapsule Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8726238099319198626, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: healthData
+      value: 
+      objectReference: {fileID: 11400000, guid: ac918080d3228f746b441de3549fe91a, type: 2}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.184
