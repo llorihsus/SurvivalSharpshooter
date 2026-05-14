@@ -74,7 +74,10 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
-		private bool IsCurrentDeviceMouse
+        private CharacterController controller;
+        [SerializeField] private Animator anim;
+
+        private bool IsCurrentDeviceMouse
 		{
 			get
 			{
@@ -108,14 +111,22 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
-		}
+
+			controller = GetComponentInParent<CharacterController>();
+        }
 
 		private void Update()
 		{
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
-		}
+
+            if (anim != null && controller != null)
+            {
+                float speed = controller.velocity.magnitude;
+                anim.SetFloat("MoveSpeed", speed);
+            }
+        }
 
 		private void LateUpdate()
 		{

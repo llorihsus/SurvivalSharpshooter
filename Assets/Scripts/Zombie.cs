@@ -29,7 +29,9 @@ public class Zombie : MonoBehaviour
             return; 
         }
 
-        agent.SetDestination(player.transform.position);
+        agent.SetDestination(player.transform.position); 
+
+        zombieAnimator.SetFloat("MoveSpeed", agent.velocity.magnitude); // Updates Walk/Idle animation
 
         if ((agent.remainingDistance <= agent.stoppingDistance) && !isAttacking)
         {

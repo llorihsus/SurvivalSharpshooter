@@ -4,34 +4,55 @@ using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] int spawnCount = 1;
-    [SerializeField] float spawnInterval = 5f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private int spawnCount = 1;
+    [SerializeField] private float spawnInterval = 5f;
+
+    private void Start()
     {
-        StartCoroutine(SpawnEnemy());
+        StartCoroutine(SpawnEnemyRoutine());
     }
 
-    private IEnumerator SpawnEnemy()
+    private IEnumerator SpawnEnemyRoutine()
     {
-        yield return new WaitForSeconds(spawnInterval);
-        for (int i = 0; i < spawnCount; i++)
+        while (true)
         {
-            GameObject enemy = ObjectPool.SharedInstance.GetPooledObject();
-            if (enemy != null)
-            {
-                Health enemyHealth = enemy.GetComponent<Health>();
-                enemyHealth.ResetHealthToMax();
-                NavMeshAgent agent = enemy.GetComponent<NavMeshAgent>();
-                agent.enabled = false;
-                enemy.transform.position = transform.position;
-                agent.Warp(transform.position);
+            yield return new WaitForSeconds(spawnInterval);
 
-                enemy.SetActive(true);
-                agent.enabled = true;
-                agent.isStopped = false;
+            for (int i = 0; i < spawnCount; i++)
+            {
+                SpawnEnemy();
             }
         }
-        StartCoroutine(SpawnEnemy());
+    }
+
+    private void SpawnEnemy()
+    {
+        GameObject enemy = ObjectPool.SharedInstance.GetPooledObject();
+
+        if (enemy == null)
+        {
+            Debug.LogWarning("No enemy available in object pool.");
+            return;
+        }
+
+        enemy.SetActive(true);
+
+        Health enemyHealth = enemy.GetComponent<Health>();
+        if (enemyHealth != null)
+        {
+            enemyHealth.ResetHealthToMax();
+        }
+
+        NavMeshAgent agent = enemy.GetComponent<NavMeshAgent>();
+        if (agent != null)
+        {
+            agent.enabled = true;
+            agent.Warp(transform.position);
+            agent.isStopped = false;
+        }
+        else
+        {
+            enemy.transform.position = transform.position;
+        }
     }
 }

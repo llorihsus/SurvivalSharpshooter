@@ -140,7 +140,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 100
   deathAnimator: {fileID: 7070123777278508618}
+  deathDelay: 2
   isDead: 0
+  disableAfterDeath: 1
 --- !u!1001 &7070123777269074730
 PrefabInstance:
   m_ObjectHideFlags: 0

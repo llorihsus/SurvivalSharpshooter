@@ -1,45 +1,104 @@
+using System.Collections;
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] float maxHealth = 100f;
-    [SerializeField] private Animator deathAnimator;
+    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private Animator deathAnimator; // Reference to Animator 
+    [SerializeField] private float deathDelay = 2f;   // How long to wait before disabling object (length of death animation)
     public bool isDead = false;
-    float currentHealth;
+    private float currentHealth;
+    [SerializeField] private bool disableAfterDeath = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
         currentHealth = maxHealth;
+
+        // If animator not assigned in Inspector, grab it automatically
+        if (deathAnimator == null)
+        {
+            deathAnimator = GetComponent<Animator>();
+        }
     }
 
     public void TakeDamage(float amount)
     {
+        // Prevent taking damage after death
+        if (isDead) return;
+
+        // Reduce health
         currentHealth -= amount;
         Debug.Log(gameObject.name + " health: " + currentHealth);
 
+        // If health reaches 0, die
         if (currentHealth <= 0)
         {
             Die();
         }
     }
 
+    // Resets health when reused from object pool
     public void ResetHealthToMax()
     {
         currentHealth = maxHealth;
         isDead = false;
+
+        // Reset animation state so zombie doesn't stay dead when reused
+        if (deathAnimator != null)
+        {
+            deathAnimator.ResetTrigger("Die");
+            deathAnimator.Play("Idle"); // Make sure this matches your idle state name
+        }
     }
 
-    void Die()
+    // Handles death logic
+    private void Die()
     {
-        //timed destruction allows death animation to play before object is removed from scene
-        deathAnimator.SetTrigger("Die");
         isDead = true;
         Debug.Log(gameObject.name + " has died!");
-        if (gameObject.name.Contains("Zombie"))
+
+        // Stop player movement
+        FirstPersonController controller = GetComponent<FirstPersonController>();
+        if (controller != null)
         {
-            gameObject.SetActive(false);
+            controller.enabled = false;
         }
+
+        // Try to play death animation only if assigned
+        if (deathAnimator != null)
+        {
+            deathAnimator.SetTrigger("Die");
+        }
+
+        // If this is the player, go to game over
+        if (!disableAfterDeath)
+        {
+            StartCoroutine(PlayerDeathSequence());
+        }
+
+        // If this is a zombie, disable after delay for pooling
+        if (disableAfterDeath)
+        {
+            StartCoroutine(DisableAfterDeathAnimation());
+        }
+    }
+
+    // Waits for animation to finish, then disables object (for pooling)
+    private IEnumerator DisableAfterDeathAnimation()
+    {
+        yield return new WaitForSeconds(deathDelay);
+
+        //Do NOT destroy, just disable for object pooling
+        gameObject.SetActive(false);
+    }
+
+    private IEnumerator PlayerDeathSequence()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        // later replace this with your game over UI
+        Debug.Log("GAME OVER");
     }
 }
